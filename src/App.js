@@ -1,10 +1,10 @@
-import './App.css';
+import MainBlock from './Layouts/MainBlock';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Start App</h1>
-    </div>
+    <>
+      <MainBlock />
+    </>
   );
 }
 
