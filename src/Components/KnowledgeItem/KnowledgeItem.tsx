@@ -9,10 +9,10 @@ const KnowledgeItem: React.FC<KnowledgeItemModel> = ({subject, answer, tags, con
       <Wrapper>
         <div className="item-container subject">{subject}</div>
         <div className="item-container answer">{answer}</div>
-        <div className="item-container tags">
+        <div className="tags">
           {tags.map(singleTag => <SingleTag key={singleTag} tag={singleTag}/>)}
         </div>
-        <div className="item-container">{connections}</div>
+        <div className="connection">{connections}</div>
         <div className="item-container date">{date}</div>
       </Wrapper>
     );
@@ -30,13 +30,14 @@ const Wrapper = styled.section`
   height: 3rem;
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;             /*to ensure aligment of some children left and some right*/
   align-items: center;
 
   .item-container {
     border: 1px solid grey;
     border-radius: var(--border-radius);
-    padding: 0.2rem
+    padding: 0.2rem;
+    margin: 0 0.1rem;
   }
 
   .subject {
@@ -44,12 +45,23 @@ const Wrapper = styled.section`
   }
 
   .answer {
-    width: 100px;
+    width: 300px;
   }
 
   .tags {
     display: flex;
     justify-content: flex-start;
+    padding: 0;
+    margin-right: auto;
+    margin-left: 1rem;
+  }
+
+  .connection {
+    width: 30px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 0.5rem;
   }
 
   .date {

@@ -15,6 +15,14 @@ const demoKnowledgeItems = [
     connections: 3,
     date: "13-03-2023",
   },
+  {
+    id: 3,
+    subject: "How to do stuff ?",
+    answer: "Do it with confidence",
+    tags: ["confidence", "stuff"],
+    connections: 3,
+    date: "10-03-2023",
+  },
 ];
 
 export default demoKnowledgeItems;

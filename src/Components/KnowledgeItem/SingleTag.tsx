@@ -12,6 +12,6 @@ export default SingleTag;
 const Wrapper = styled.section`
   border: 1px solid grey;
   border-radius: var(--border-radius);
-  padding: 0.25rem;
-  margin: 0.1rem;
+  padding: 0.2rem;
+  margin: 0 0.1rem;
 `
