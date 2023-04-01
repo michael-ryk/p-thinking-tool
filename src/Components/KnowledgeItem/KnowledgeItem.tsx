@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import SingleTag from './SingleTag';
+
 import KnowledgeItemModel from '../../models/KnowledgeItemModel';
 
 const KnowledgeItem: React.FC<KnowledgeItemModel> = ({subject, answer, tags, connections, date}) => {
@@ -7,7 +9,9 @@ const KnowledgeItem: React.FC<KnowledgeItemModel> = ({subject, answer, tags, con
       <Wrapper>
         <div className="item-container subject">{subject}</div>
         <div className="item-container answer">{answer}</div>
-        <div className="item-container">{tags}</div>
+        <div className="item-container tags">
+          {tags.map(singleTag => <SingleTag key={singleTag} tag={singleTag}/>)}
+        </div>
         <div className="item-container">{connections}</div>
         <div className="item-container date">{date}</div>
       </Wrapper>
@@ -41,6 +45,11 @@ const Wrapper = styled.section`
 
   .answer {
     width: 100px;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: flex-start;
   }
 
   .date {

@@ -3,7 +3,7 @@ const demoKnowledgeItems = [
     id: 1,
     subject: "Example question for something",
     answer: "Answer for this question",
-    tags: ["variable", "scope"],
+    tags: ["variable", "scope", "something"],
     connections: 3,
     date: "15-03-2023",
   },
