@@ -1,6 +1,6 @@
 import MainBlock from './Layouts/MainBlock';
 
-function App() {
+const App = () => {
   return (
     <>
       <MainBlock />

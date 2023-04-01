@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Headings() {
+const Headings = () => {
   return (
       <Wrapper>
         <h1>Headings</h1>

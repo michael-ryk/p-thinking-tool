@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
-import KnowledgeItem from '../Components/KnowledgeItem';
+import KnowledgeItem from '../Components/KnowledgeItem/KnowledgeItem';
 import Headings from '../Components/Headings';
 import Controls from '../Components/Controls';
 
-function MainBlock() {
+import demoKnowledgeItems from '../Assets/DemoItemsList';
+
+const MainBlock = () => {
   return (
       <Wrapper>
         <Controls />
         <Headings />
-        <KnowledgeItem />
-        <KnowledgeItem />
-        <KnowledgeItem />
+        {demoKnowledgeItems.map(item => <KnowledgeItem key={item.id} {...item}/>)}
       </Wrapper>
     );
 }

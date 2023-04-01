@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const styled_components_1 = __importDefault(require("styled-components"));
-const KnowledgeItem_1 = __importDefault(require("../Components/KnowledgeItem"));
+const KnowledgeItem_1 = __importDefault(require("../Components/KnowledgeItem/KnowledgeItem"));
 const Headings_1 = __importDefault(require("../Components/Headings"));
 const Controls_1 = __importDefault(require("../Components/Controls"));
 function MainBlock() {

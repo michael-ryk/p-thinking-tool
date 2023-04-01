@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Controls() {
+const Controls = () => {
   return (
       <Wrapper>
         <h1>Controls - Search - Filter</h1>
