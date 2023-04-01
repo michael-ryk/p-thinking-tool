@@ -41,11 +41,11 @@ const Wrapper = styled.section`
   }
 
   .subject {
-    width: 600px;
+    width: var(--subject-width);
   }
 
   .answer {
-    width: 300px;
+    width: var(--answer-width);
   }
 
   .tags {
