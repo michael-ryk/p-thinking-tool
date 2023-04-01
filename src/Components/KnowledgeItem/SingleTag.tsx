@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const SingleTag: React.FC<{tag: string}> = (tag) => {
+const SingleTag: React.FC<{tag: string}> = ({tag}) => {
   return (
-      <Wrapper>{tag.tag}
+      <Wrapper>{tag}
       </Wrapper>
     );
 }
