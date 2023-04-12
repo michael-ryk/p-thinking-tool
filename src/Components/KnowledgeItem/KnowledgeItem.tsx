@@ -26,7 +26,6 @@ const Wrapper = styled.section`
   border-radius: var(--border-radius);
   margin: 0.25rem;
   padding: 0.1rem;
-  justify: center;
   height: 3rem;
 
   display: flex;
