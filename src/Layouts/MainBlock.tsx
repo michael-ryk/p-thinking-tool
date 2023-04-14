@@ -1,17 +1,20 @@
+import { RootState } from '../store/store';
+import { useSelector } from 'react-redux';
+
 import styled from 'styled-components';
 
 import KnowledgeItem from '../Components/KnowledgeItem/KnowledgeItem';
 import Headings from '../Components/Headings';
 import Controls from '../Components/Controls';
 
-import demoKnowledgeItems from '../Assets/DemoItemsList';
-
 const MainBlock = () => {
+  const demoKnowledgeItemsArray = useSelector((state: RootState) => state.knowledgeItem.knowledgeItems);
+
   return (
       <Wrapper>
         <Controls />
         <Headings />
-        {demoKnowledgeItems.map(item => <KnowledgeItem key={item.id} {...item}/>)}
+        {demoKnowledgeItemsArray.map(item => <KnowledgeItem key={item.id} {...item}/>)}
       </Wrapper>
     );
 }
