@@ -47,7 +47,7 @@ const Wrapper = styled.section`
     width: 1.5rem;
     height: 1.5rem;
     text-align: center;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem;
   }
 
   .subject {
