@@ -1,17 +1,14 @@
-import { RootState } from '../store/store';
-import { useSelector } from 'react-redux';
-
+import { useAppSelector } from '../hooks';
 import styled from 'styled-components';
-
 import KnowledgeItem from '../Components/KnowledgeItem/KnowledgeItem';
 import Headings from '../Components/Headings';
 import Controls from '../Components/Controls';
 import GroupTagsArea from '../Components/KnowledgeItem/GroupTagsArea';
 
 const MainBlock = () => {
-  const demoKnowledgeItemsArray = useSelector((state: RootState) => state.knowledgeItem.knowledgeItems);
-  const selectedItemId = useSelector((state: RootState) => state.knowledgeItem.selectedItemId);
-  const selectedItemTagsArray = useSelector((state: RootState) => state.knowledgeItem.selectedItemTagArray);
+  const demoKnowledgeItemsArray = useAppSelector((state) => state.knowledgeItem.knowledgeItems);
+  const selectedItemId = useAppSelector((state) => state.knowledgeItem.selectedItemId);
+  const selectedItemTagsArray = useAppSelector((state) => state.knowledgeItem.selectedItemTagArray);
 
   return (
       <Wrapper>

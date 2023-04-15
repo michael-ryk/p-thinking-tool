@@ -1,11 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hooks';
 import { selectItem } from '../../store/knowledgeItemSlice';
 import styled from 'styled-components';
 import SingleTag from './SingleTag';
 import KnowledgeItemModel from '../../models/KnowledgeItemModel';
 
 const KnowledgeItem: React.FC<KnowledgeItemModel> = ({id, subject, answer, tags, connections, date}) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
       <Wrapper>

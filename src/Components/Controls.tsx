@@ -1,9 +1,9 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../hooks';
 import { clearSelectedItem } from '../store/knowledgeItemSlice';
 import styled from 'styled-components';
 
 const Controls = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
       <Wrapper>

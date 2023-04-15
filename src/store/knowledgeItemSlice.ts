@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import demoKnowledgeItems from '../Assets/DemoItemsList';
 import KnowledgeItemModel from '../models/KnowledgeItemModel';

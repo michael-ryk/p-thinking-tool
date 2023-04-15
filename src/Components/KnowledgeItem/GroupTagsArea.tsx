@@ -1,5 +1,4 @@
-import { RootState } from '../../store/store';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks';
 import KnowledgeItem from './KnowledgeItem';
 import styled from 'styled-components';
 
@@ -9,7 +8,7 @@ type Props = {
 }
 
 const GroupTagsArea: React.FC<Props> = ({ tag }) => {
-  const demoKnowledgeItemsArray = useSelector((state: RootState) => state.knowledgeItem.knowledgeItems);
+  const demoKnowledgeItemsArray = useAppSelector((state) => state.knowledgeItem.knowledgeItems);
 
   return (
     <Wrapper>
