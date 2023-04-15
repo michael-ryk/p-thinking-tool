@@ -27,10 +27,13 @@ const knowledgeItemSlice = createSlice({
     selectItem(state, action: PayloadAction<KnowledgeItemModel>) {
       state.selectedItemId = action.payload.id;
       state.selectedItemTagArray = [...new Set(action.payload.tags)]
-    }
+    },
+    clearSelectedItem(state){
+      state.selectedItemId = 0;
+    },
   }
 });
 
-export const { addItem, selectItem } = knowledgeItemSlice.actions;
+export const { addItem, selectItem, clearSelectedItem } = knowledgeItemSlice.actions;
 
 export default knowledgeItemSlice.reducer;
