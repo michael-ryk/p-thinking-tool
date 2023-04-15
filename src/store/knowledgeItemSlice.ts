@@ -4,9 +4,17 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import demoKnowledgeItems from '../Assets/DemoItemsList';
 import KnowledgeItemModel from '../models/KnowledgeItemModel';
 
-const initialKnowledgeState = {
+// Type Model for Initial state
+interface InitialKnowledgeStateModel {
+  knowledgeItems: KnowledgeItemModel[],
+  selectedItemId: number,
+  selectedItemTagArray : string[],
+}
+
+const initialKnowledgeState: InitialKnowledgeStateModel = {
   knowledgeItems: demoKnowledgeItems,
   selectedItemId: 0,
+  selectedItemTagArray: [],
 };
 
 const knowledgeItemSlice = createSlice({
@@ -16,8 +24,9 @@ const knowledgeItemSlice = createSlice({
     addItem(state, action: PayloadAction<KnowledgeItemModel>) {
       state.knowledgeItems = [...state.knowledgeItems, action.payload]
     },
-    selectItem(state, action: PayloadAction<number>) {
-      state.selectedItemId = action.payload;
+    selectItem(state, action: PayloadAction<KnowledgeItemModel>) {
+      state.selectedItemId = action.payload.id;
+      state.selectedItemTagArray = [...new Set(action.payload.tags)]
     }
   }
 });

@@ -9,7 +9,7 @@ const KnowledgeItem: React.FC<KnowledgeItemModel> = ({id, subject, answer, tags,
 
   return (
       <Wrapper>
-        <button className="btn" onClick={() => dispatch(selectItem(id))}>o</button>
+        <button className="btn" onClick={() => dispatch(selectItem({id, subject, answer, tags, connections, date}))}>o</button>
         <div className="item-container subject">{subject}</div>
         <div className="item-container answer">{answer}</div>
         <div className="tags">
