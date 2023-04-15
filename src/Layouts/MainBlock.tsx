@@ -1,17 +1,21 @@
+import { useAppSelector } from '../hooks';
 import styled from 'styled-components';
-
 import KnowledgeItem from '../Components/KnowledgeItem/KnowledgeItem';
 import Headings from '../Components/Headings';
 import Controls from '../Components/Controls';
-
-import demoKnowledgeItems from '../Assets/DemoItemsList';
+import GroupTagsArea from '../Components/KnowledgeItem/GroupTagsArea';
 
 const MainBlock = () => {
+  const demoKnowledgeItemsArray = useAppSelector((state) => state.knowledgeItem.knowledgeItems);
+  const selectedItemId = useAppSelector((state) => state.knowledgeItem.selectedItemId);
+  const selectedItemTagsArray = useAppSelector((state) => state.knowledgeItem.selectedItemTagArray);
+
   return (
       <Wrapper>
         <Controls />
         <Headings />
-        {demoKnowledgeItems.map(item => <KnowledgeItem key={item.id} {...item}/>)}
+        {selectedItemId > 0 && selectedItemTagsArray.map((item, index) => <GroupTagsArea key={index} tag={item} />)}
+        {selectedItemId === 0 && demoKnowledgeItemsArray.map(item => <KnowledgeItem key={item.id} {...item}/>)}
       </Wrapper>
     );
 }

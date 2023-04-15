@@ -1,12 +1,15 @@
+import { useAppDispatch } from '../../hooks';
+import { selectItem } from '../../store/knowledgeItemSlice';
 import styled from 'styled-components';
-
 import SingleTag from './SingleTag';
-
 import KnowledgeItemModel from '../../models/KnowledgeItemModel';
 
-const KnowledgeItem: React.FC<KnowledgeItemModel> = ({subject, answer, tags, connections, date}) => {
+const KnowledgeItem: React.FC<KnowledgeItemModel> = ({id, subject, answer, tags, connections, date}) => {
+  const dispatch = useAppDispatch();
+
   return (
       <Wrapper>
+        <button className="btn" onClick={() => dispatch(selectItem({id, subject, answer, tags, connections, date}))}>o</button>
         <div className="item-container subject">{subject}</div>
         <div className="item-container answer">{answer}</div>
         <div className="tags">
@@ -26,7 +29,6 @@ const Wrapper = styled.section`
   border-radius: var(--border-radius);
   margin: 0.25rem;
   padding: 0.1rem;
-  justify: center;
   height: 3rem;
 
   display: flex;
@@ -38,6 +40,14 @@ const Wrapper = styled.section`
     border-radius: var(--border-radius);
     padding: 0.2rem;
     margin: 0 0.1rem;
+  }
+
+  .btn {
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    margin: 0 0.5rem;
   }
 
   .subject {

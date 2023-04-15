@@ -1,4 +1,4 @@
-interface KnowledgeItem {
+export default interface KnowledgeItem {
   id: number;
   subject: string;
   answer: string;
@@ -6,5 +6,3 @@ interface KnowledgeItem {
   connections: number;
   date: string;
 }
-
-export default KnowledgeItem;
