@@ -10,6 +10,7 @@ import GroupTagsArea from '../Components/KnowledgeItem/GroupTagsArea';
 
 const MainBlock = () => {
   const demoKnowledgeItemsArray = useSelector((state: RootState) => state.knowledgeItem.knowledgeItems);
+  const selectedItemId = useSelector((state: RootState) => state.knowledgeItem.selectedItemId);
 
   const dummyArray = ["some stuff", "another stuff"];
 
@@ -17,8 +18,8 @@ const MainBlock = () => {
       <Wrapper>
         <Controls />
         <Headings />
-        {dummyArray.map((item, index) => <GroupTagsArea key={index} tag={item} />)}        
-        {demoKnowledgeItemsArray.map(item => <KnowledgeItem key={item.id} {...item}/>)}
+        {selectedItemId > 0 && dummyArray.map((item, index) => <GroupTagsArea key={index} tag={item} />)}
+        {selectedItemId === 0 && demoKnowledgeItemsArray.map(item => <KnowledgeItem key={item.id} {...item}/>)}
       </Wrapper>
     );
 }
