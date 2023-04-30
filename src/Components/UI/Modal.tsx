@@ -6,14 +6,20 @@ type Props = {
 }
 
 const Backdrop = () => {
-  return <div className="backdrop"/>
+  return (
+    <StyleWrapper>
+      <div className="backdrop"/>
+    </StyleWrapper>
+    )
 }
 
 const ModalOverlay = ({ children } : Props) => {
   return (
-    <div className="modal">
-      <div className='content'>{children}</div>
-    </div>
+    <StyleWrapper>
+      <div className="modal">
+        <div className="content">{children}</div>
+      </div>
+    </StyleWrapper>
   )
 }
 
@@ -21,18 +27,18 @@ const portalElement = document.getElementById('overlay') as HTMLElement;
 
 const Modal = ({ children } : Props) => {
   return (
-    <StyleWrapper>
+    <>
       {createPortal(<Backdrop />, portalElement)}
       {createPortal(<ModalOverlay>{children}</ModalOverlay>, portalElement)}
-    </StyleWrapper>
+    </>
   )
 }
 
 export default Modal;
 
-const StyleWrapper = styled.section`
+const StyleWrapper = styled.div`
 
-  .backdrop {
+.backdrop {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -54,6 +60,6 @@ const StyleWrapper = styled.section`
   }
 
   .content {
-  
+
   }
 `
