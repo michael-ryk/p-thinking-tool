@@ -43,7 +43,7 @@ const StyleWrapper = styled.div`
     width: 100%;
     height: 100vh;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(66, 66, 66, 0.75);
   }
 
   /* Popup window */
