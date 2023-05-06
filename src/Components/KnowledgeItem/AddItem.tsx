@@ -10,7 +10,7 @@ const AddItem = () => {
 
   const dispatch = useAppDispatch()
 
-  const [userInput, setUserInput] = useState({});
+  const [userInput, setUserInput] = useState({subject: "", answer: "", tags: ""});
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const {name, value} = event.target;
@@ -20,17 +20,16 @@ const AddItem = () => {
         [name]: value
       }
     })
-    console.log(userInput);
   }
-
 
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
     const newItem: KnowledgeItemModel = {
       id: new Date().getTime(),
-      subject: "New Subject",
-      answer: "New Answer",
-      tags: ["promotion", "variable"],
+      subject: userInput.subject,
+      answer: userInput.answer,
+      tags: userInput.tags.replace(/\s/g, '').split(","),
       connections: 2,  //todo: Calculate number of connections here
       date: new Date().toLocaleDateString('en-UK')
     }
