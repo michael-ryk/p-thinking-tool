@@ -1,6 +1,8 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, ChangeEvent, useState } from 'react';
 import { useAppDispatch } from '../../hooks';
 import { closeModal } from '../../store/modalSlice';
+import { addItem } from '../../store/knowledgeItemSlice';
+import KnowledgeItemModel from '../../models/KnowledgeItemModel';
 import Modal from '../UI/Modal';
 import styled from 'styled-components';
 
@@ -8,8 +10,32 @@ const AddItem = () => {
 
   const dispatch = useAppDispatch()
 
+  const [userInput, setUserInput] = useState({});
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const {name, value} = event.target;
+    setUserInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value
+      }
+    })
+    console.log(userInput);
+  }
+
+
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    const newItem: KnowledgeItemModel = {
+      id: new Date().getTime(),
+      subject: "New Subject",
+      answer: "New Answer",
+      tags: ["promotion", "variable"],
+      connections: 2,  //todo: Calculate number of connections here
+      date: new Date().toLocaleDateString('en-UK')
+    }
+    dispatch(addItem(newItem));
+    dispatch(closeModal());
   }
 
   return (
@@ -18,15 +44,15 @@ const AddItem = () => {
         <h1>Add new item</h1>
         <div className="single-element">
           <label htmlFor="subject">Subject</label>
-          <input type="text" id="subject" name="subject" />
+          <input type="text" id="subject" name="subject" onChange={handleInputChange} />
         </div>
         <div className="single-element">
           <label>Answer</label>
-          <input type="text" id="answer" name="answer" />
+          <input type="text" id="answer" name="answer" onChange={handleInputChange} />
         </div>
         <div className="single-element">
           <label>Tags</label>
-          <input type="text" id="tags" name="answer" placeholder="...separate by comma"/>
+          <input type="text" id="tags" name="tags" onChange={handleInputChange} placeholder="...separate by comma"/>
         </div>
         <div className="single-element">
         </div>
