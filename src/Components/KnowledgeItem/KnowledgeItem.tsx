@@ -17,6 +17,7 @@ const KnowledgeItem: React.FC<KnowledgeItemModel> = ({id, subject, answer, tags,
         </div>
         <div className="connection">{connections}</div>
         <div className="item-container date">{date}</div>
+        <div>Delete</div>
       </Wrapper>
     );
 }
