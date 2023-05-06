@@ -29,5 +29,6 @@ const Wrapper = styled.section`
 
   h1 {
     font-size: 1.5rem;
+    margin-left: 0.5rem;
   }
 `

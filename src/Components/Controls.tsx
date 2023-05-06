@@ -1,5 +1,6 @@
 import { useAppDispatch } from '../hooks';
 import { clearSelectedItem } from '../store/knowledgeItemSlice';
+import { openModal } from '../store/modalSlice';
 import styled from 'styled-components';
 
 const Controls = () => {
@@ -9,6 +10,7 @@ const Controls = () => {
       <Wrapper>
         <h1>Controls - Search - Filter</h1>
         <button onClick={() => dispatch(clearSelectedItem())}>Clear Selected</button>
+        <button onClick={() => dispatch(openModal())}>Add Note</button>
       </Wrapper>
     );
 }

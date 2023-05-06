@@ -1,8 +1,10 @@
+import { MouseEvent } from 'react';
 import { useAppDispatch } from '../../hooks';
-import { selectItem } from '../../store/knowledgeItemSlice';
+import { selectItem, removeItem } from '../../store/knowledgeItemSlice';
 import styled from 'styled-components';
 import SingleTag from './SingleTag';
 import KnowledgeItemModel from '../../models/KnowledgeItemModel';
+import { AiOutlineDelete } from "react-icons/ai";
 
 const KnowledgeItem: React.FC<KnowledgeItemModel> = ({id, subject, answer, tags, connections, date}) => {
   const dispatch = useAppDispatch();
@@ -17,6 +19,7 @@ const KnowledgeItem: React.FC<KnowledgeItemModel> = ({id, subject, answer, tags,
         </div>
         <div className="connection">{connections}</div>
         <div className="item-container date">{date}</div>
+        <div className="icon" onClick={() => dispatch(removeItem(id))}><AiOutlineDelete /></div>
       </Wrapper>
     );
 }
@@ -76,5 +79,12 @@ const Wrapper = styled.section`
 
   .date {
     
+  }
+
+  .icon {
+    font-size: 1.7rem;
+    :hover{
+      color: #ae0000;
+    }
   }
 `

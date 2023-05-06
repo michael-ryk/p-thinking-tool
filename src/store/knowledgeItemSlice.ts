@@ -7,7 +7,7 @@ import KnowledgeItemModel from '../models/KnowledgeItemModel';
 interface InitialKnowledgeStateModel {
   knowledgeItems: KnowledgeItemModel[],
   selectedItemId: number,
-  selectedItemTagArray : string[],
+  selectedItemTagArray: string[],
 }
 
 const initialKnowledgeState: InitialKnowledgeStateModel = {
@@ -27,12 +27,16 @@ const knowledgeItemSlice = createSlice({
       state.selectedItemId = action.payload.id;
       state.selectedItemTagArray = [...new Set(action.payload.tags)]
     },
-    clearSelectedItem(state){
+    clearSelectedItem(state) {
       state.selectedItemId = 0;
+    },
+    removeItem(state, action: PayloadAction<number>) {
+      const deleteId = action.payload;
+      state.knowledgeItems = state.knowledgeItems.filter(item => item.id !== deleteId)
     },
   }
 });
 
-export const { addItem, selectItem, clearSelectedItem } = knowledgeItemSlice.actions;
+export const { addItem, selectItem, clearSelectedItem, removeItem } = knowledgeItemSlice.actions;
 
 export default knowledgeItemSlice.reducer;

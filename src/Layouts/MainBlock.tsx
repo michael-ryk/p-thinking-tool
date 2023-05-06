@@ -12,6 +12,7 @@ const MainBlock = () => {
 
   return (
       <Wrapper>
+        <h1>TBD Heading with links</h1>
         <Controls />
         <Headings />
         {selectedItemId > 0 && selectedItemTagsArray.map((item, index) => <GroupTagsArea key={index} tag={item} />)}
@@ -23,6 +24,6 @@ const MainBlock = () => {
 export default MainBlock;
 
 const Wrapper = styled.section`
-  margin: 2% 10% ;
+  margin: 0 10% ;
   border: 1px solid grey;
 `
